@@ -74,3 +74,6 @@ class calculo(Data):
         self.valorFinal = (valorMat + custo_Tempo + valor_Desing)/0,66
 
         return self.valorFinal
+    
+    def calculoPCB(self):
+        pass
