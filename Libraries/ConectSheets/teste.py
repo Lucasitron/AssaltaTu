@@ -1,5 +1,13 @@
-from conectSheets import ConectSheets
+from libraries.conectSheets import ConectSheets
 
+
+class teste():
+    def __init__(self) -> None:
+        pass
+
+    def con():
+        conect = ConectSheets()
+        conect.connect()
 conect = ConectSheets()
 conect.connect()
 

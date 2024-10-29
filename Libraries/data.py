@@ -1,4 +1,4 @@
-from ConectSheets.conectSheets import ConectSheets
+from conectSheets import ConectSheets
 
 class Data():
     
@@ -35,19 +35,13 @@ class Data():
         
         #chama a função gravador
         self.save.registraEncomenda(dadosEncomenda) 
-
-class calculo(Data):
-    def __init__(self) -> None:
-        data = Data()
-        data.__init__(self)
-        self.trabalhoMaquina = 0,00
         
     def calculo3D(self, peso, filamento, tempoImpressao, modelagem):
         
         valorFil = peso #* #save.buscaMaterial(filamento)
 
         # Define o valor do tempo de impressao
-        if tempoImpressao > 320:
+        if int(tempoImpressao) > 320:
             self.trabalhoMaquina = 24
         else:
             self.trabalhoMaquina = tempoImpressao * 0,23
@@ -56,7 +50,7 @@ class calculo(Data):
             vModel = modelagem*16
         
         #calcula o valor da impressao
-        self.valorFinal = (valorFil + tempoImpressao + modelagem)/0.66
+        self.valorFinal = int(valorFil + tempoImpressao + modelagem)/0.66
 
         return self.valorFinal
     
@@ -76,4 +70,17 @@ class calculo(Data):
         return self.valorFinal
     
     def calculoPCB(self):
+    
         pass
+
+    #Busca a lista de itens com o mesmo nome na base
+    def buscaInsumo(self, nome):
+        material = None
+        for i in self.save.Lista:
+            if (nome == self.save.Lista[i][0]):
+                cont = i
+                while nome == self.save.Lista[0][i]:
+                    material.append(self.save.Lista[cont])
+                    cont+=1
+            break
+        return material
