@@ -1,0 +1,73 @@
+<TelaPrincipal>:
+    name: 'TelaPrincipal'
+
+    FloatLayout:
+        MDLabel:
+            text: 'OrçaTool 2.0'
+            font_style: 'H6'
+            adaptive_size: True
+            size_hint: None, None
+            pos_hint: {'center_x': 0.2,'center_y': 0.95}
+
+        Image:
+            source: "Imagens\logo_fablab.png"
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.85}
+
+        MDLabel:
+            text: 'Opções de Cálculo'
+            font_style: 'H6'
+            adaptive_size: True
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.7}
+
+        MDRaisedButton:
+            text: 'Impressão 3D (PLA\ABS\PET)'
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'TelaImpressao3D'
+
+        MDRaisedButton:
+            text: 'Corte Laser (MDF\ACRÍLICO)'
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+
+        MDRaisedButton:
+            text: 'Usinagem PCB'
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.4}
+
+        MDRaisedButton:
+            text: 'Em Breve'
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.3}
+
+        MDRectangleFlatIconButton:
+            text: "Ajustar Valores"
+            icon: "lock"
+            pos_hint: {"center_x": 0.75, "center_y": 0.05}
+
+<TelaImpressao3D>:
+    name: 'TelaImpressao3D'
+
+    FloatLayout:
+        MDLabel:
+            text: 'Impressão 3D'
+            font_style: 'H6'
+            adaptive_size: True
+            size_hint: None, None
+            pos_hint: {'center_x': 0.2,'center_y': 0.95}
+
+        MDLabel:
+            text: 'Material'
+            adaptive_size: True
+            size_hint: None, None
+            pos_hint: {'center_x': 0.2,'center_y': 0.7}
+
+        MDDropDownItem:
+            id: button
+            pos_hint: {'center_x': 0.5, 'center_y': .7}
+            text: 'Selecione'
+            on_release: app.menu_open()
